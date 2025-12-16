@@ -160,7 +160,89 @@ How to use this without breaking things
 First visit
 On the Template Sniffer screen:
 
+Read the theme overview
 
+Check whether you are on a child theme
 
-# wp-template-sniffer
-Audits the active theme for missing core templates, child overrides, unused page templates and general template hierarchy nonsense. 
+Note parent and child paths
+
+See if block templates are present
+
+Scan the core template coverage
+
+Confirm index.php exists somewhere
+
+Check whether single.php and page.php are present
+
+Look for weird gaps, like missing archive.php or search.php
+
+Look at the child overrides
+
+If something in the parent refuses to change, this list explains why
+
+Check page templates
+
+Note templates that are defined but unused
+
+Note templates that are referenced by content but missing
+
+Finally, glance over miscellaneous files
+
+Get a feel for how much debris lives in the theme
+
+When debugging a specific problem
+Examples:
+
+A page insists on using the wrong layout
+
+A template edit does nothing
+
+A missing file suddenly causes white screens in certain conditions
+
+Use this plugin to:
+
+Confirm which template files actually exist
+
+Confirm whether they live in child or parent
+
+Confirm whether the page template stored in meta has a matching file
+
+This is faster than guessing and grepping blindly through theme directories.
+
+Limitations
+This is intentionally not a complete theme validator.
+
+Known limitations:
+
+It does not understand custom template loaders in bespoke frameworks
+
+It does not inspect get_template_part usage
+
+It does not simulate the full template hierarchy resolution for specific requests
+
+It does not understand language specific templates beyond their filenames
+
+It does not know whether a miscellaneous file is safe to delete
+
+Use it as a map and a reality check, not as a replacement for reading code.
+
+Roadmap
+Things that might appear later:
+
+Export of the full scan as JSON
+
+Request simulator that shows which template would render a given URL
+
+Plugin specific hints for WooCommerce and similar ecosystems
+
+Warnings for template files that are present in parent and never referenced
+
+Things that probably will not:
+
+Automated template generation
+
+File edits or moves
+
+Heavy static analysis of template code
+
+The goal is to stay light, honest and focused on structure.
